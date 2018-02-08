@@ -20,7 +20,7 @@ const app = express();
 
 // export locals ato template
 hbs.localsAsTemplateData(app);
-app.locals.defaultPageTitle = "Brims online";
+app.locals.defaultPageTitle = 'Brims online';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,9 +43,7 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(flash());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')))
-
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
@@ -82,19 +80,19 @@ app.use((err, req, res, next) => {
 hbs.registerHelper('helper_name', function(...) { ... });
 hbs.registerPartial('partial_name', 'partial value');
 */
-hbs.registerPartials(__dirname + '/views/partials',() => {});
-// hbs helpers 
+hbs.registerPartials(`${__dirname}/views/partials`, () => {});
+// hbs helpers
 hbs.registerHelper('link', function(text, options) {
   var attrs = [];
 
-  for (var prop in options.hash) {
+  for (const prop in options.hash) {
     attrs.push(
-        hbs.handlebars.escapeExpression(prop) + '="'
-        +  hbs.handlebars.escapeExpression(options.hash[prop]) + '"');
+      `${hbs.handlebars.escapeExpression(prop)}="` +
+       `${hbs.handlebars.escapeExpression(options.hash[prop])}"`);
   }
 
-  return new  hbs.handlebars.SafeString(
-    "<a " + attrs.join(" ") + ">" +  hbs.handlebars.escapeExpression(text) + "</a>"
+  return new hbs.handlebars.SafeString(
+    `<a ${attrs.join(' ')}>${hbs.handlebars.escapeExpression(text)}</a>`
   );
 });
 module.exports = app;
