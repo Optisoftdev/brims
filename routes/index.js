@@ -31,7 +31,7 @@ router.post('/register', (req, res, next) => {
 
 
 router.get('/login', (req, res) => {
-    res.render('login', { user : req.user, error : req.flash('error')});
+    res.render('login', { /*layout: 'layout', */user : req.user, error : req.flash('error')});
 });
 
 router.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }), (req, res, next) => {
