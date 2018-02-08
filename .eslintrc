@@ -11,7 +11,6 @@
     "constructor-super":"error",
     "comma-spacing":"error",
     "vars-on-top":"error",
-    "curly":"error",
     "jsx-quotes":"error",
     "strict":0,
     "global-require":"error",
