@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{@defaultPageTitle}}</p>
+
+<br class="content">
+    {{#unless user}}
+    {{{link "Login" href="/login" class="login"}}}
+     <br/>
+  {{{link "Register" href="/register"}}}
+    {{/unless}}
+
+    {{#if user}}
+    <p>You are currently logged in as {{user.username}} </p>
+     {{{link "Logout" href="/logout"}}}
+    {{/if}}
+</div>
