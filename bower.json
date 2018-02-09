@@ -1,0 +1,21 @@
+{
+  "name": "brims",
+  "description": "Brims online",
+  "main": [],
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {},
+  "authors": [
+    "Timothy Peters <timotewpeters@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "private": true
+}
