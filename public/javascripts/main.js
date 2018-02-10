@@ -1531,37 +1531,37 @@ module.exports = function escape(url) {
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "/home/timothy/brim/node_modules/font-awesome/fonts/fontawesome-webfont.eot?ec3bf882d5ca1d826534dcfc4d0fef91";
+module.exports = __webpack_require__.p + "fonts/fontawesome-webfont.eot?c6c74c82724671cec9528c80164c1a8c";
 
 /***/ }),
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "/home/timothy/brim/node_modules/font-awesome/fonts/fontawesome-webfont.eot?ec3bf882d5ca1d826534dcfc4d0fef91";
+module.exports = __webpack_require__.p + "fonts/fontawesome-webfont.eot?c6c74c82724671cec9528c80164c1a8c";
 
 /***/ }),
 /* 24 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "data:font/woff2;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICIvaG9tZS90aW1vdGh5L2JyaW0vbm9kZV9tb2R1bGVzL2ZvbnQtYXdlc29tZS9mb250cy9mb250YXdlc29tZS13ZWJmb250LndvZmYyP2FmN2FlNTA1YTllZWQ1MDNmOGI4ZTY5ODIwMzY4NzNlIjs="
+module.exports = __webpack_require__.p + "public/media/fontawesome-webfont.af7ae505.woff2";
 
 /***/ }),
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "/home/timothy/brim/node_modules/font-awesome/fonts/fontawesome-webfont.woff?7711c6b4d40091a0497d57c720ee3fd2";
+module.exports = __webpack_require__.p + "fonts/fontawesome-webfont.woff?fc522d1f4485a1b3f4109d8207aa6df9";
 
 /***/ }),
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "/home/timothy/brim/node_modules/font-awesome/fonts/fontawesome-webfont.ttf?99017b9a2a21b9208a44b525d494455f";
+module.exports = __webpack_require__.p + "fonts/fontawesome-webfont.ttf?a17cfa8afbc9dab505ed1a3a28064dbe";
 
 /***/ }),
 /* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "/home/timothy/brim/node_modules/font-awesome/fonts/fontawesome-webfont.svg?35ca9c18c56359239d253de81e46bccf";
+module.exports = __webpack_require__.p + "fonts/fontawesome-webfont.svg?912ec66d7572ff821749319396470bde";
 
 /***/ }),
 /* 28 */

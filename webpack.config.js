@@ -48,7 +48,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[path][name].[ext]?[hash]'
+              name: 'fonts/[name].[ext]?[hash]'
             }
           }
         ]
@@ -112,14 +112,7 @@ module.exports = {
         include: [/(app|test)/],
         loader: 'babel-loader'
       },
-      {
-        test: /\.(eot|woff|ttf|svg)$/,
-        loaders: ['file-loader?name=[path][name].[ext]?[hash]']
-      },
-      {
-        test: /\.woff2(\?\S*)?$/,
-        loaders: ['file-loader?name=[path][name].[ext]?[hash]']
-      }
+
     ]
   }
 };
