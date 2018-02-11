@@ -20,7 +20,7 @@ class FormContainer extends Component {
     const { seoTitle } = this.state;
     return (
       <form id="article-form">
-      <span className="fa fa-frown-o" ></span>
+        <span className="fa fa-frown-o" ></span>
         <Input
           text="SEO title"
           label="seo_title"
@@ -35,6 +35,7 @@ class FormContainer extends Component {
 }
 
 const wrapper = document.getElementById('brim');
-wrapper ? ReactDOM.render(<FormContainer />, wrapper) : false;
+if (wrapper)
+  ReactDOM.render(<FormContainer />, wrapper)
 
 export default FormContainer;
