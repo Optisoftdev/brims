@@ -1,107 +1,118 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-process.env.NODE_ENV = 'development';
-
+process.env.NODE_ENV = 'production';
 module.exports = {
-  cache: true,
-  debug: true,
-  devtool: 'source-map',
-  devServer: {
-    inline: true,
-    port: 3000
-  },
-  resolve: {
-    root: path.resolve('app'),
-    extensions: ['.js', '.json', '.jsx', ''],
-    alias: {
-      'request$': 'xhr'
-    },
-  },
-  resolveLoader: {
-    root: [path.join(process.cwd(), 'node_modules')]
-  },
-  entry: [
-    require.resolve('react-dev-utils/webpackHotDevClient'),
-    path.resolve('app/root.jsx'),
-  ],
+  entry: ['./app/root.js'],
   output: {
-    path: path.resolve('build'),
-    filename: 'static/js/bundle.js',
-    sourceMapFilename: 'bundle.map',
-    publicPath: '/'
+    path: path.resolve(__dirname, 'public'),
+    filename: 'javascripts/[name].js',
+    sourceMapFilename: '[name].map',
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      inject: true,
-      template: path.resolve('public/index.html'),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: function() {
+          return [
+            autoprefixer({
+              browsers: [
+                '>1%',
+                'last 4 versions',
+                'Firefox ESR',
+                'not ie < 9',
+              ]
+            }),
+          ];
+        }
+      }
     }),
-    new webpack.HotModuleReplacementPlugin(),
-  /*	new webpack.optimize.DedupePlugin(),
-		new webpack.optimize.UglifyJsPlugin(),
-		new webpack.DefinePlugin({
-			'process.env': {
-			  NODE_ENV: JSON.stringify('production')
-			}
-		  })*/
+ /* new webpack.optimize.UglifyJsPlugin(),
+ new webpack.DefinePlugin({
+ 'process.env': {
+  NODE_ENV: JSON.stringify('production')
+ }
+  })*/
   ],
   module: {
-    preLoaders: [{
-      test: /\.(js|jsx)$/,
-      loader: 'eslint',
-      exclude: [/node_modules/]
-    }],
-    loaders: [{
-      exclude: [
-        /\.html$/,
-        /\.(js|jsx)$/,
-        /\.scss$/,
-        /\.css$/,
-        /\.json$/,
-        /\.svg$/
-      ],
-      loader: 'url',
-      query: {
-        limit: 10000,
-        name: 'static/media/[name].[hash:8].[ext]'
-      }
-    },
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.(eot|woff|ttf|svg|wof2)(\?\S*)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[name].[ext]?[hash]'
+            }
+          }
+        ]
+      },
+      {
+        exclude: [
+          /\.html$/,
+          /\.(js|jsx)$/,
+          /\.scss$/,
+          /\.css$/,
+          /\.json$/,
+          /\.svg$/
+        ],
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'public/media/[name].[hash:8].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader?importLoaders=1',
+            options: {
+              importLoaders: 1,
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [require('autoprefixer')]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader'
+        },
               {
-                test: /\.css$/,
-                loader: 'style!css?importLoaders=1!postcss'
-              }, {
-                test: /\.scss$/,
-                loader: 'style!css?importLoaders=1&localIdentName=' +
-                        '_[hash:base64:4]!postcss!sass'
-              }, {
-                test: /\.(js|jsx)$/,
-                include: [/(src|test)/],
-                loader: 'babel'
+                loader: 'css-loader'
               },
               {
-                test: /\.(eot|woff|ttf|svg)$/,
-                loaders: ['file?name=[path][name].[ext]?[hash]']
-              },
-              {
-                test: /\.woff2(\?\S*)?$/,
-                loaders: ['file?name=[path][name].[ext]?[hash]']
+                loader: 'sass-loader',
+                options: {
+                  localIdentName: '_[hash:base64:4]'
+                }
               }]
-  },
-  postcss: function() {
-    return [ autoprefixer({
-      browsers: [
-        '>1%',
-        'last 4 versions',
-        'Firefox ESR',
-        'not ie < 9',
-      ]
-    }),
-    ];
-  },
-  eslint: {
-    failOnError: true,
+      },
+      {
+        test: /\.(js|jsx)$/,
+        include: [/(app|test)/],
+        loader: 'babel-loader'
+      },
+
+    ]
   }
 };

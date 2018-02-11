@@ -9,7 +9,12 @@
     "serve": "node dist/index.js",
     "lint": "eslint ./",
     "test": "make test",
+<<<<<<< HEAD
     "dev": "webpack-dev-server --content-base build/"
+=======
+    "static": "webpack",
+    "static:deploy": "webpack --optimize-minimize"
+>>>>>>> webpack
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -33,26 +38,36 @@
     "should": "^13.2.1"
   },
   "devDependencies": {
+    "autoprefixer": "^7.2.5",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.9",
     "eslint": "^4.17.0",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.43.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.6.1",
     "file-loader": "^1.1.6",
-    "html-webpack-plugin": "^2.30.1",
-    "http-server": "^0.11.1",
+    "font-awesome": "^4.7.0",
+    "node-sass": "^4.7.2",
     "nodemon": "^1.14.12",
+    "postcss-loader": "^2.1.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dev-utils": "^5.0.0",
+    "react-dom": "^16.2.0",
     "sass-loader": "^6.0.6",
-    "sinon": "^4.2.2",
     "style-loader": "^0.20.1",
     "url-loader": "^0.6.2",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack": "^3.10.0"
   }
 }
