@@ -9,12 +9,8 @@
     "serve": "node dist/index.js",
     "lint": "eslint ./",
     "test": "make test",
-<<<<<<< HEAD
-    "dev": "webpack-dev-server --content-base build/"
-=======
     "static": "webpack",
     "static:deploy": "webpack --optimize-minimize"
->>>>>>> webpack
   },
   "dependencies": {
     "body-parser": "~1.18.2",
