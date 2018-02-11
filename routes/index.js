@@ -5,11 +5,11 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-  res.render('index', { user: req.user });
+  res.render('index', { user: req.user, layout: 'layouts/user' });
 });
 
 router.get('/register', (req, res) => {
-  res.render('register', { });
+  res.render('register', { layout: 'layouts/guest' });
 });
 
 router.post('/register', (req, res, next) => {
@@ -32,7 +32,8 @@ router.post('/register', (req, res, next) => {
 
 router.get('/login', (req, res) => {
   res.render('login', { /* layout: 'layout', */user: req.user,
-                                               error: req.flash('error') });
+                                               error: req.flash('error'), 
+                                               layout: 'layouts/guest' });
 });
 
 router.post('/login', passport.authenticate('local',
@@ -53,7 +54,7 @@ router.get('/logout', (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.redirect('/');
+    res.redirect('/login');
   });
 });
 

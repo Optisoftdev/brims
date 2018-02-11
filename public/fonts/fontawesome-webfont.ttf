@@ -1,1 +1,1 @@
-module.exports = __webpack_public_path__ + "public/media/fontawesome-webfont.b06871f2.ttf";
+module.exports = __webpack_public_path__ + "media/fontawesome-webfont.b06871f2.ttf";
