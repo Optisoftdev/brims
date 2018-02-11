@@ -1767,7 +1767,7 @@ var FormContainer = function (_Component) {
 }(_react.Component);
 
 var wrapper = document.getElementById('brim');
-wrapper ? _reactDom2.default.render(_react2.default.createElement(FormContainer, null), wrapper) : false;
+if (wrapper) _reactDom2.default.render(_react2.default.createElement(FormContainer, null), wrapper);
 
 exports.default = FormContainer;
 
