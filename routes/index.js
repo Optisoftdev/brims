@@ -32,7 +32,7 @@ router.post('/register', (req, res, next) => {
 
 router.get('/login', (req, res) => {
   res.render('login', { /* layout: 'layout', */user: req.user,
-                                               error: req.flash('error'), 
+                                               error: req.flash('error'),
                                                layout: 'layouts/guest' });
 });
 
